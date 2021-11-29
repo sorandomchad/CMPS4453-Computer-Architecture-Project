@@ -47,17 +47,17 @@ int main()
             cache[set].line0 = tag_set;
             cache[set].ref = 1;
             misses++;
-        } 
-        else if(cache[set].line1 == -1)
-        {   // line 1 in cache set empty, cache miss
-            cache[set].line1 = tag_set;
-            cache[set].ref = 0;
-            misses++;
         }
         else if(cache[set].line0 == tag_set)
         { // block found in line 0 of the cahce set
             cache[set].ref = 1;
             continue;
+        }
+        else if(cache[set].line1 == -1)
+        {   // line 1 in cache set empty, cache miss
+            cache[set].line1 = tag_set;
+            cache[set].ref = 0;
+            misses++;
         }
         else if(cache[set].line1 == tag_set)
         {  // block found in line 1 of the cache set
@@ -87,7 +87,6 @@ int main()
                     vCache[i] = cache[set].line0;
                     cache[set].line0 = tag_set;
                     misses ++;
-                    // cout << hex << page;
                     break;
                 }
             
@@ -129,7 +128,6 @@ int main()
                     vCache[i] = cache[set].line1;
                     cache[set].line1 = tag_set;
                     misses ++;
-                    // cout << hex << page;
                     break;
                 }
             
