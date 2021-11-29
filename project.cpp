@@ -1,4 +1,4 @@
-/*  Chad Callender, Sarah Gilliland, Faith McDonald
+/*  Chad Callender
     CMPS 4453
     Project
 */
